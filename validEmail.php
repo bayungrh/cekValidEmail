@@ -1,5 +1,5 @@
-<?php
-header("Content-Type: text/plain");
+<?php header("Content-Type: text/plain");
+
 	function cekValidEmail($email) {
 		if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 			$host = explode('@', $email)[1];
@@ -14,9 +14,9 @@ header("Content-Type: text/plain");
 	}
 
 $email = array( 'bnugraha00@gmail.com', 
-			   	'email@contoh.com', 
-			   	'email@tes.cot'
-		);
+		'email@contoh.com', 
+		'email@tes.cot'
+	 );
 
 foreach ($email as $mail) {
 	if(cekValidEmail($mail)) {

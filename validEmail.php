@@ -2,9 +2,9 @@
 
 	function cekValidEmail($email) {
 		if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-			$host = explode('@', $email)[1];
-    		if (!checkdnsrr($host, 'MX')) {
-    			return false;
+			list($user, $host) = explode('@', $email);
+    			if (!checkdnsrr($host, 'MX')) {
+    				return false;
 			} else {
 				return true;
 			}

@@ -1,7 +1,8 @@
 <?php header("Content-Type: text/plain");
 
 	function cekValidEmail($email) {
-		if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		$pattern = '/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/';
+		if (preg_match($pattern, $email)) {
 			list($user, $host) = explode('@', $email);
     			if (!checkdnsrr($host, 'MX')) {
     				return false;
